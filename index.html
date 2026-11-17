@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jab We Met | Luxury South Indian Wedding Management</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --velvet-crimson: #3D050A;
+            --deep-merlot: #590D14;
+            --rose-gold: #D8A888;
+            --bronze-gold: #A67556;
+            --ivory-silk: #FAF6F0;
+            --charcoal: #1E1617;
+            --gold-light: #F4EADB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--ivory-silk);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .sans-caps {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(61, 5, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(216, 168, 136, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            transition: all 0.4s ease;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 50%;
+            border: 1px solid var(--rose-gold);
+        }
+
+        .nav-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--ivory-silk);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose-gold);
+        }
+
+        .cta-btn-nav {
+            background: transparent;
+            border: 1px solid var(--rose-gold);
+            color: var(--rose-gold);
+            padding: 8px 20px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-nav:hover {
+            background: var(--rose-gold);
+            color: var(--velvet-crimson);
+        }
+
+        /* Hero Section */
+        header.hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(61, 5, 10, 0.75), rgba(61, 5, 10, 0.85)), url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--ivory-silk);
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 25px;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .hero-logo-container img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--rose-gold);
+            box-shadow: 0 0 30px rgba(216, 168, 136, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--rose-gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 35px;
+            color: var(--ivory-silk);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--rose-gold);
+            color: var(--velvet-crimson);
+            padding: 14px 32px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #e6bc9c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--ivory-silk);
+            border: 1px solid var(--rose-gold);
+            padding: 14px 32px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(216, 168, 136, 0.15);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            color: var(--bronze-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--velvet-crimson);
+            font-weight: 500;
+        }
+
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .ornament-divider::before, .ornament-divider::after {
+            content: "";
+            height: 1px;
+            width: 60px;
+            background: var(--rose-gold);
+        }
+
+        .ornament-divider span {
+            color: var(--rose-gold);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--ivory-silk);
+            padding: 45px 30px;
+            border: 1px solid rgba(216, 168, 136, 0.2);
+            position: relative;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(61, 5, 10, 0.08);
+            border-color: var(--rose-gold);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--velvet-crimson);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--velvet-crimson);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--ivory-silk);
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--bronze-gold);
+            padding: 8px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--charcoal);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--velvet-crimson);
+            color: var(--ivory-silk);
+            border-color: var(--velvet-crimson);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px 20px;
+            background: linear-gradient(to top, rgba(61, 5, 10, 0.9), transparent);
+            color: var(--ivory-silk);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.3rem;
+            color: var(--rose-gold);
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            background-color: #fff;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: var(--ivory-silk);
+            border: 1px solid rgba(216, 168, 136, 0.3);
+            padding: 50px 35px;
+            position: relative;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card.featured {
+            background: var(--velvet-crimson);
+            color: var(--ivory-silk);
+            border-color: var(--rose-gold);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(61, 5, 10, 0.15);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            right: 35px;
+            background: var(--rose-gold);
+            color: var(--velvet-crimson);
+            padding: 5px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .package-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .package-card.featured h3 {
+            color: var(--rose-gold);
+        }
+
+        .package-card .price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--bronze-gold);
+            margin-bottom: 25px;
+        }
+
+        .package-card.featured .price {
+            color: var(--rose-gold);
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(216, 168, 136, 0.2);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-features li::before {
+            content: "✦";
+            color: var(--rose-gold);
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(rgba(61, 5, 10, 0.95), rgba(61, 5, 10, 0.95)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            color: var(--ivory-silk);
+            padding: 100px 8%;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            color: var(--rose-gold);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: #e0d0c0;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .contact-detail-item span {
+            color: var(--rose-gold);
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border: 1px solid rgba(216, 168, 136, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--rose-gold);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(216, 168, 136, 0.3);
+            color: var(--ivory-silk);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--rose-gold);
+        }
+
+        .form-group select option {
+            background: var(--velvet-crimson);
+            color: var(--ivory-silk);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #250205;
+            color: var(--ivory-silk);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(216, 168, 136, 0.2);
+        }
+
+        footer img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid var(--rose-gold);
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: #b09585;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="assets/jwm-logo.png" alt="JWM Logo">
+            <span>JAB WE MET</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#contact" class="cta-btn-nav">Enquire Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Home Page / Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="assets/jwm-logo.png" alt="JWM Crest">
+            </div>
+            <p class="sans-caps" style="color: var(--rose-gold); margin-bottom: 10px;">South Indian Luxury Wedding Architecture</p>
+            <h1>Jab We Met — Weddings & Events</h1>
+            <p>“Where Every Love Story Becomes a Celebration.” From traditional temple muhurtams to grand destination receptions, we craft timeless memories.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary">Book Consultation</a>
+                <a href="#gallery" class="btn-secondary">Explore Gallery</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Our Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <span class="sans-caps">End-to-End A-to-Z Execution</span>
+            <h2>Our Signature Services</h2>
+            <div class="ornament-divider"><span>✦</span></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏛️</div>
+                <h3>Wedding Planning</h3>
+                <p>Complete A-to-Z wedding production, master budget architecture, vendor contract negotiations, and seamless day-of coordination.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪷</div>
+                <h3>Venue Decoration</h3>
+                <p>Bespoke South Indian mandaps, royal stage designs, traditional temple-inspired pillars, and breathtaking aesthetic transformations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌸</div>
+                <h3>Floral Arrangements</h3>
+                <p>Exquisite Madurai jasmine (*mallipoo*) garlands, fragrant tuberose hangings, lotus centerpieces, and exotic floral styling.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🍽️</div>
+                <h3>Catering Coordination</h3>
+                <p>Authentic traditional South Indian plantain leaf feasts (*sadya*), multi-course royal menus, and bespoke gourmet dining experiences.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Photography & Films</h3>
+                <p>World-class cinematic wedding films, candid photography, drone aerials, and timeless editorial albums capturing every ritual.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎻</div>
+                <h3>Entertainment & Rituals</h3>
+                <p>Nadaswaram troupes, classical Carnatic musicians, celebrity DJs, sangeet choreographers, and traditional ritual coordinators.</p>
+            </div>
+            <div class="service-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                <div class="service-icon">✈️</div>
+                <h3>Destination Weddings</h3>
+                <p>Exclusive destination weddings across coastal backwaters, heritage palaces, and hill stations with complete guest hospitality logistics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <span class="sans-caps">Visual Masterpieces</span>
+            <h2>Our Wedding Gallery</h2>
+            <div class="ornament-divider"><span>✦</span></div>
+        </div>
+        <div class="gallery-filters">
+            <button class="filter-btn active" onclick="filterGallery('all')">All Celebrations</button>
+            <button class="filter-btn" onclick="filterGallery('mandap')">Mandap Designs</button>
+            <button class="filter-btn" onclick="filterGallery('floral')">Jasmine & Florals</button>
+            <button class="filter-btn" onclick="filterGallery('rituals')">South Indian Rituals</button>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="mandap">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Royal Mandap">
+                <div class="gallery-overlay">
+                    <h4>Royal Gold Mandap</h4>
+                    <p>Traditional Temple Architecture & Floral Canopy</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="floral">
+                <img src="https://images.unsplash.com/photo-1545232979-fbf82fdc3f86?auto=format&fit=crop&w=800&q=80" alt="Jasmine Florals">
+                <div class="gallery-overlay">
+                    <h4>Mallipoo Elegance</h4>
+                    <p>Cascading Madurai Jasmine & Tuberose Decor</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="rituals">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Muhurtam Ritual">
+                <div class="gallery-overlay">
+                    <h4>Sacred Muhurtam</h4>
+                    <p>Authentic South Indian Wedding Ceremonies</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="mandap">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Reception Setup">
+                <div class="gallery-overlay">
+                    <h4>Grand Evening Reception</h4>
+                    <p>Candlelight & Floral Ceiling Installation</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="floral">
+                <img src="https://images.unsplash.com/photo-1561647784-2f9c43b07a0b?auto=format&fit=crop&w=800&q=80" alt="Lotus Theme">
+                <div class="gallery-overlay">
+                    <h4>Sacred Lotus Theme</h4>
+                    <p>Pond-side Sangeet and Floating Floral Motifs</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="rituals">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Bridal Styling">
+                <div class="gallery-overlay">
+                    <h4>Kanjeevaram & Gold Styling</h4>
+                    <p>Traditional Bridal Jewelry & Floral Braids</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Our Packages Section -->
+    <section class="packages-section" id="packages">
+        <div class="section-header">
+            <span class="sans-caps">Curated Tiers</span>
+            <h2>Wedding Planning Packages</h2>
+            <div class="ornament-divider"><span>✦</span></div>
+        </div>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div>
+                    <h3>Mallipoo Elegance</h3>
+                    <div class="price">₹3,50,000</div>
+                    <ul class="package-features">
+                        <li>Day-of Coordination & Execution</li>
+                        <li>Standard Mandap & Stage Decor</li>
+                        <li>Fresh Jasmine & Marigold Florals</li>
+                        <li>Vendor Sourcing & Budget Guidance</li>
+                        <li>Photography Coordination</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-secondary" style="border-color: var(--velvet-crimson); color: var(--velvet-crimson); text-align: center;">Select Package</a>
+            </div>
+            <div class="package-card featured">
+                <div class="package-badge">Most Popular</div>
+                <div>
+                    <h3>Thamara Royal</h3>
+                    <div class="price">₹7,50,000</div>
+                    <ul class="package-features">
+                        <li>Complete A-to-Z Wedding Planning</li>
+                        <li>Custom Temple-Inspired Luxury Mandap</li>
+                        <li>Exotic Floral & Lotus Installations</li>
+                        <li>Catering & Menu Curation</li>
+                        <li>Cinematic Photography & Film Crew</li>
+                        <li>Guest Hospitality & Room Block Mgmt</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-primary" style="text-align: center;">Select Package</a>
+            </div>
+            <div class="package-card">
+                <div>
+                    <h3>Maharaja Couture</h3>
+                    <div class="price">₹15,00,000+</div>
+                    <ul class="package-features">
+                        <li>Bespoke Destination Wedding Mgmt</li>
+                        <li>Architectural Stage & Lighting Design</li>
+                        <li>Celebrity Entertainment & Nadaswaram</li>
+                        <li>Personalized Bridal Styling & Concierge</li>
+                        <li>Drone Aerials & Luxury Hardbound Albums</li>
+                        <li>24/7 Dedicated Production Directors</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-secondary" style="border-color: var(--velvet-crimson); color: var(--velvet-crimson); text-align: center;">Select Package</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Contact Us Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-header" style="margin-bottom: 40px;">
+            <span class="sans-caps" style="color: var(--rose-gold);">Begin Your Journey</span>
+            <h2 style="color: var(--rose-gold);">Contact Our Wedding Architects</h2>
+            <div class="ornament-divider"><span>✦</span></div>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Let's Craft Your Dream Celebration</h2>
+                <p>Reach out to our principal wedding planners in Chennai, Bengaluru, or Kochi. We look forward to listening to your love story.</p>
+                <div class="contact-detail-item">
+                    <span>📞</span>
+                    <div>+91 98400 JABWM / +91 44 2855 0000</div>
+                </div>
+                <div class="contact-detail-item">
+                    <span>✉️</span>
+                    <div>concierge@jabwemetweddings.com</div>
+                </div>
+                <div class="contact-detail-item">
+                    <span>📍</span>
+                    <div>JWM Luxury Studios, Poes Garden, Chennai & Indiranagar, Bengaluru</div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="enquiryForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label>Couple / Your Name</label>
+                        <input type="text" required placeholder="e.g. Ananya & Karthik">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" required placeholder="+91 98765 43210">
+                    </div>
+                    <div class="form-group">
+                        <label>Estimated Wedding Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Selected Package / Interest</label>
+                        <select id="packageSelect">
+                            <option value="Mallipoo Elegance">Mallipoo Elegance (₹3.5L)</option>
+                            <option value="Thamara Royal">Thamara Royal (₹7.5L)</option>
+                            <option value="Maharaja Couture">Maharaja Couture (₹15L+)</option>
+                            <option value="Custom Bespoke">Custom Destination Wedding</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Vision & Requirements</label>
+                        <textarea rows="4" placeholder="Tell us about your dream venue, guest count, and traditions..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer;">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Quick Chat -->
+    <a href="https://wa.me/919840000000?text=Hello%20Jab%20We%20Met%20Team,%20I%20would%20like%20to%20enquire%20about%20wedding%20planning%20services." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <img src="assets/jwm-logo.png" alt="JWM Logo">
+        <h3>Jab We Met — Weddings & Events</h3>
+        <p>&copy; 2026 JWM Luxury Celebrations. All Rights Reserved. South Indian Wedding Architecture.</p>
+    </footer>
+
+    <script>
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Thank you! Your enquiry has been received by our principal wedding planners at Jab We Met. We will contact you within 24 hours.");
+            document.getElementById('enquiryForm').reset();
+        }
+    </script>
+</body>
+</html>
